@@ -1,3 +1,4 @@
+#![allow(unused_variables)] // compiler directive
 /*
 fn main() {
     // this is a comment in Rust
@@ -23,6 +24,11 @@ fn main() {
 
 // Variables and Mutability
 
+const TAX_RATE: i32 = 30; // constant
+
+type Meters = i32; // type alias
+
+// #[allow(unused_variables)] // compiler directive
 fn main() {
     let apples_in_garden = 50;
     let oranges_in_garden = 14 + 6;
@@ -65,5 +71,49 @@ fn main() {
     grams_of_protein = 105;
     println!("Grams of protein as integer (Mutable): {grams_of_protein}");
 
+    // Scope
+
+    let coffee_price = 5.99;
+    // scope of coffee_price variable => main function
+
+    {
+        let coffee_price = 3.99;
+        println!("The price of coffee is {coffee_price}");
+
+        let cookie_price = 1.99;
+
+        println!("The price of the cookie is {cookie_price}");
+
+    }
+
+    println!("The price of coffee is {coffee_price}");
+
+    // println!("The price of the cookie is {cookie_price}")
+    // error[E0425]: cannot find value `cookie_price` in this scope
+
+    // constant
+
+    let income = 1000000;
+
+    let tax = income * TAX_RATE / 100;
+
+    println!("The tax rate is {TAX_RATE}");
+    println!("The tax on income of {income} is {tax}.");
+
+    // Type Alias
+
+    let mile_race_length: Meters = 1600;
+
+    let two_mile_race_length: Meters = 3200;
+
+    println!("A 1 mile race is {mile_race_length} meters long and a two mile race is {two_mile_race_length} meters long.");
+
+    // Compiler Directive => apply above the line or above the main function or to the file
+
+    // #[allow(unused_variables)]
+    let mile_race_length: Meters = 1600;
+
+    // #[allow(unused_variables)]
+    let two_mile_race_length: Meters = 3200;
 
 }
