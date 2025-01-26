@@ -1,9 +1,12 @@
 #![allow(unused_variables)] // compiler directive
+
+// Comments
+
 /*
 fn main() {
     // this is a comment in Rust
     println!("Hello rustc! I'm a Rust Developer.") // this is the key line in our program
-                                                   // println!("This line will be ignored...")
+    // println!("This line will be ignored...")
 
     /*
     This is a multi line comment in Rust
@@ -14,6 +17,8 @@ fn main() {
 }
 */
 
+// println!() 
+
 /*
 fn main() {
     println!("Hello, I'm SKG exploring Rust.");
@@ -23,6 +28,8 @@ fn main() {
 */
 
 // Variables and Mutability
+
+/*
 
 const TAX_RATE: i32 = 30; // constant
 
@@ -116,4 +123,64 @@ fn main() {
     // #[allow(unused_variables)]
     let two_mile_race_length: Meters = 3200;
 
+}
+
+*/
+
+// Data Types
+
+fn main() {
+
+    // Integers
+
+    // Type inferred : i32
+    let eight_bit = -256; 
+
+    // explicit type annotation
+    let eight_bit: i8 = -128; 
+    let eight_bit: i8 = 127; 
+
+    let eight_bit_unsigned: u8 = 112; 
+    let eight_bit_unsigned: u8 = 255; 
+    // let eight_bit_unsigned: u8 = -112; 
+
+    let sixteen_bit_signed: i16 = -32500;
+    let sixteen_bit_unsigned: u16 = 64000;
+
+    let thirty_two_bit_signed  = -2147483648;
+    let thirty_two_bit_unsigned:u32  = 4294967295;
+
+    // Alternative way of Explicit Type Annotation (valid but not consistent with the convention)
+    let some_value = 20i8;
+    let some_value = 20i16;
+    let some_value = 20u16;
+
+    // using _ as Visual Separator for Numbers (a replacement for , in mathematics)
+    let sixteen_bit_signed: i16 = 32_500;
+    let thirty_two_bit_signed: i32 = 1_132_500;
+
+    // usize vs isize -> aliases for u32/u64 and i32/i64 integer types (32/64 depends on OS being 32bit 64bit OS)
+
+    let days: usize = 55;
+    let years: isize = -15_000;
+
+    // String
+
+    // string literal: value is known to compiler at compile time
+
+    println!("Hello, world!"); 
+
+    // special characters -> escape characters
+    println!("Hello, \nworld!"); 
+    println!("Hello, \tworld!"); 
+    println!("Hello, \"world\"!"); 
+    
+    let filepath = "C:\\My Documents\\new\\videos";
+    println!("{filepath}");
+    
+    // alternative: Raw String (every character is interpreted literally) for file paths
+    
+    let filepath= r"C:\My Documents\new\videos";
+    println!("{filepath}");
+    
 }
